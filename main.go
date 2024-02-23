@@ -8,6 +8,9 @@ import (
 
 	// "gocommerce/seeders"
 
+	"net/http"
+	_ "net/http/pprof" // Import pprof to enable the pprof handlers
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -48,5 +51,7 @@ func main() {
 
 	router.POST("/login", handlers.Login(db))
 	router.POST("/register", handlers.Register(db))
+
+	router.GET("/debug/pprof/*pprof", gin.WrapH(http.DefaultServeMux))
 	server.Run(":8000")
 }
