@@ -6,8 +6,6 @@ import (
 	"gocommerce/middlewares"
 	"gocommerce/migrations"
 
-	// "gocommerce/seeders"
-
 	"net/http"
 	_ "net/http/pprof" // Import pprof to enable the pprof handlers
 
